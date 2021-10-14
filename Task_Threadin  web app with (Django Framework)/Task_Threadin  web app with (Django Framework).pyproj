@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="app\templates\app\about.html" />
     <Content Include="app\templates\app\index.html" />
+    <Content Include="app\templates\app\registrationForm.html" />
     <Content Include="app\templates\app\viewRegDetails.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

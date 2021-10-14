@@ -8,10 +8,10 @@
         <section id="loginForm">
             <form action="." method="post" class="form-horizontal">
                 {% csrf_token %}
-                <h4>Use a local account to log in.</h4>
+                <h4>User Login >>> (usign MySQL Database)</h4>
                 <hr />
                 <div class="form-group">
-                    <label for="id_username" class="col-md-2 control-label">User name</label>
+                    <label for="id_username" class="col-md-2 control-label">Username</label>
                     <div class="col-md-10">
                         {{ form.username }}
                     </div>
@@ -34,12 +34,14 @@
             </form>
         </section>
     </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm"></section>
+    <div class="col-md-4 form-group">
+        <section id="id_forgotPassword">
+
+            <span class="forgotPass"> <label for="id_forgotPassword"> <input type="checkbox" class="" /> <a href="forgotPassword/">forgot Password?</a> </label> </span>
+        </section>
     </div>
 </div>
 
-{% endblock %}
 
 
 {% block scripts %}
@@ -48,3 +50,8 @@
 <script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
 
 {% endblock %}
+
+
+
+{% endblock %}
+
