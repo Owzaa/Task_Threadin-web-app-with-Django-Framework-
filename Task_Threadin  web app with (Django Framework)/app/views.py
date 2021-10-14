@@ -4,16 +4,18 @@ from django.http import HttpRequest
 
 
 
-def homeView(request):
-    """Renders all Tasks created by Users."""
+def home(request):
+    """home view"""
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/index.html',
+        'app/about.html',
         {
-            'year':datetime.now().year,
+            'year':datetime.now().year
         }
     )
+
+
 
 def allTask(request):
     """Renders all Tasks created by Users."""
@@ -37,7 +39,7 @@ def createTask(request):
         'app/createTask.html',
         {
             'title':'Create Your Task ',
-            'message':'Please create your tasks here',
+            
             'year':datetime.now().year,
         }
     )
@@ -63,7 +65,6 @@ def currentTask(request):
         'app/currentTask.html',
         {
             'title': 'Current Task',
-            'message': 'Tasks Currently',
             'year': datetime.now().year,
         }
           
@@ -82,3 +83,27 @@ def userEditDetails(request):
         }
           
     )
+
+
+
+def registerForm(request):
+    assert isinstance(request,HttpRequest)
+    return render(request,'app/registrationForm.html',
+                  {
+                    'title': 'Custom User Registration Form',
+                    'year': datetime.now().year,
+                    }
+                  )
+
+def submit(request):
+    assert isinstance(request,HttpRequest)
+    obj = createTask()
+    obj.title = request.GET['title']
+    obj.description = request.GET['description']
+    obj.checkbox = request.GET['checkbox']
+    obj.save()
+    myDict={
+        'allTasks': createTask.objects.all()
+        
+        }
+    return render(request,'app/allTasks.html',context=myDict)

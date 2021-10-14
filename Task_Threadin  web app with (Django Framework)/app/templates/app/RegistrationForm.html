@@ -1,0 +1,113 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="registraionForm">
+            <form action="{% url 'submit'  %}" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <hr />
+                <div class="form-group">
+                    <label for="id_username" class="col-md-2 control-label">Username</label>
+                    <div class="col-md-10">
+                     <input type="text" class="form-control" id="username" /> 
+                    </div>
+                </div>
+
+
+                 <div class="form-group">
+                    <label for="id_firstname" class="col-md-2 control-label">First Name</label>
+                    <div class="col-md-10">
+                         <input type="text" class="form-control" id="firstname" />   
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="id_surnname" class="col-md-2 control-label">Surname</label>
+                    <div class="col-md-10">
+                          <input type="text" class="form-control" id="surname" />   
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="id_mobile" class="col-md-2 control-label">Mobile Number</label>
+                    <div class="col-md-10">
+                         <input type="number" class="form-control" id="mobile" />   
+                    </div>
+                </div>
+
+               <div class="form-group">
+                    <label for="id_IDnumber" class="col-md-2 control-label">ID Number</label>
+                    <div class="col-md-10">
+                           <input type="text" class="form-control" id="IDnumber" />  
+                    </div>
+                </div>
+
+               <div class="form-group">
+                    <label for="id_email" class="col-md-2 control-label">Email Address</label>
+                    <div class="col-md-10">
+                            <input type="email" class="form-control" id="email" /> 
+                    </div>
+                </div>
+
+
+               <div class="form-group">
+                    <label for="id_address" class="col-md-2 control-label">Address</label>
+                    <div class="col-md-10">     <textarea rows="3" class="form-control" id="address" />
+                    </div>
+                </div>
+
+               <div class="form-group">
+                    <label for="id_copyid" class="col-md-2 control-label">Copy of Your ID</label>
+                   
+                         <img type="image" class="form-control" id="copyid" />    
+                  
+                </div>
+
+               <div class="form-group">
+                    <label for="id_proofofaddress" class="col-md-2 control-label">Proof of Address</label>
+                       <input type="image" class="form-control" id="proofofaddress" /> 
+                </div>
+
+
+                <div class="form-group">
+                    <label for="id_password" class="col-md-2 control-label">Password</label>
+                    <div class="col-md-10">
+     <input type="password" class="form-control" id="password" />
+                    </div>
+                </div>
+
+                
+               <div class="form-group">
+                    <label for="id_confirmpassword" class="col-md-2 control-label">Confirm Password</label>
+                    <div class="col-md-10">
+     <input type="password" class="form-control" id="confirmpassword" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Register" class="btn btn-default" />
+                    </div>
+                </div>
+                {% if form.errors %}
+                <p class="validation-summary-errors">Please enter a correct user name and password.</p>
+                {% endif %}
+            </form>
+        </section>
+    </div>
+  
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}
