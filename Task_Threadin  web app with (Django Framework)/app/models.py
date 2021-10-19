@@ -43,3 +43,10 @@ class UserRegistration (models.Model):
 
 
       
+def WriteToExcel(AllTasks_data,DeletedTasks_data,QuedTasks_data, allTask=None):
+    
+    QuedTasks_data= QuedTasks.objects.all()
+    DeletedTasks_data= DeletedTasks.objects.all()
+    AllTasks_data= allTask.objects.all()
+    
+
